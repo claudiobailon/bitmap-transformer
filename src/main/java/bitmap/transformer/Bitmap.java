@@ -30,6 +30,7 @@ public class Bitmap {
     public String addBorder(){
         int width = this.image.getWidth();
         int height = this.image.getHeight();
+        
         System.out.println(width);
         System.out.println(height);//reference for setting colors https://stackoverflow.com/questions/23234306/how-to-edit-the-pixels-in-a-bufferedimage
         for(int x = 0; x < width; x++ ){

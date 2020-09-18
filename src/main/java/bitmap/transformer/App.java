@@ -19,9 +19,9 @@ public class App {
 
 
     public static void main(String[] args) {
-        Bitmap bitmap = new Bitmap("src/main/resources/LAND2.bmp", "src/main/resources/imgResult.bmp", "randomize");
+        Bitmap bitmap = new Bitmap(args[0], args[1], args[2]);
         System.out.println(new App().getGreeting());
-        System.out.println(bitmap.changeBitmapUsingThisMethod("randomize"));
+        System.out.println(bitmap.changeBitmapUsingThisMethod(args[2]));
 //        System.out.println(args[0]);
     }
 }
