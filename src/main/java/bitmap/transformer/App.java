@@ -3,12 +3,25 @@
  */
 package bitmap.transformer;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class App {
     public String getGreeting() {
         return "Hello world.";
     }
 
+
+
+
     public static void main(String[] args) {
+        Bitmap bitmap = new Bitmap(args[0], args[1], args[2]);
         System.out.println(new App().getGreeting());
+        System.out.println(bitmap.changeBitmapUsingThisMethod(args[2]));
+//        System.out.println(args[0]);
     }
 }
