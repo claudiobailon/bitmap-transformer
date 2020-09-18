@@ -31,7 +31,7 @@ public class Bitmap {
         int width = this.image.getWidth();
         int height = this.image.getHeight();
         System.out.println(width);
-        System.out.println(height);
+        System.out.println(height);//reference for setting colors https://stackoverflow.com/questions/23234306/how-to-edit-the-pixels-in-a-bufferedimage
         for(int x = 0; x < width; x++ ){
             if(x == 5){
                 x = width -5;
@@ -72,9 +72,8 @@ public class Bitmap {
         int width = this.image.getWidth();
         int height = this.image.getHeight();
 
-
         for(int y = 0; y < height; y++ ){
-            for(int x = 0; x < width; x++){
+            for(int x = 0; x < width; x++){// learned this from https://dyclassroom.com/image-processing-project/how-to-create-a-random-pixel-image-in-java
                 int r= (int) (Math.random()*256);
                 int g= (int) (Math.random()*256);
                 int b= (int) (Math.random()*256);
@@ -95,7 +94,25 @@ public class Bitmap {
 
 
     private String mirror() {
-        return "";
+        int width = this.image.getWidth();
+        int height = this.image.getHeight();
+
+        for(int x = 0; x < width; x++ ){
+
+            for(int y = 0; y < height; y++){
+                int p = this.image.getRGB(width-x-1,y);
+                this.image.setRGB(x,y,p);
+            }
+        }
+
+        try {
+            ImageIO.write(this.image, "bmp", new File(this.outputFilePath));
+        } catch (IOException e) {
+            System.out.println("Failed");
+        }
+        return "Success!!";
+
+        }
     }
-}
+
 
